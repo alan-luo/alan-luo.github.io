@@ -82,6 +82,7 @@ canvas {
 	line-height:100%;
 	margin-right:30px;
 	div {
+		position:relative;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
@@ -92,12 +93,27 @@ canvas {
 		.social-icons {
 			flex-direction: row;
 			font-size:18pt;
-			span {
+			a {
 				margin-left:0.25em;
 				&:first-child {
 					margin-left:0;
 				}
+				span {
+					transition: color 0.25s;	
+				}
+				&.link-github:hover span {
+					color:#6e5494;
+				}
+				&.link-linkedin:hover span {
+					color:#2867B2;
+				}
+				&.link-twitter:hover span {
+					color:#00acee;
+				}
 			}
+		}
+		.anim-link a:before {
+			bottom:-2px;
 		}
 	}
 
