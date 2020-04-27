@@ -25,8 +25,9 @@ a {
 /* top layout */
 .canvas-wrapper {
 	position:relative;
-	height: calc(100vh - 1em)!important;
-	width: calc(100vw)!important;
+	height: calc(100vh - 3.25em)!important;
+	width:100%;
+	// width: calc(100vw)!important;
 	background:$background-color;
 	border-bottom:1px solid #ccc;
 }

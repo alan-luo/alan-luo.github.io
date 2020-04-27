@@ -11,28 +11,28 @@ let dist = (d1, d2) => Math.sqrt(norm(d1, d2));
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 ctx.translate(0.5, 0.5);
+const canvasScale = 2;
 
 function resize() {
-	canvas.width = 2*canvas.offsetWidth;	
-	canvas.height = 2*canvas.offsetHeight;
+	canvas.width = canvasScale*canvas.offsetWidth;	
+	canvas.height = canvasScale*canvas.offsetHeight;
 }
 resize();
 window.addEventListener("resize", resize);
 
 
-// draw code
+// init code
 const numDots = 100;
 
 let frames = 0;
 let dots = [];
 let norms = [];
 
-// init code
 for(let i=0; i<numDots; i++) {
 	dots.push([
 		rand(0, canvas.width),
 		rand(0, canvas.height),
-		randSgn()*rand(0.1, 1),
+		randSgn()*rand(0.1, 1), 
 		randSgn()*rand(0.1, 1),
 		0,
 		0,
@@ -49,19 +49,43 @@ function calculateNorms() {
 }
 calculateNorms();
 
-let getCol = (norm) => 0.25-norm/160000;
+// mouse code
+let mouse = [-100, -100];
+let particles = [];
+function mousemove(e) {
+	mouse[0] = e.pageX; mouse[1] = e.pageY;
 
+	particles.push({
+		data:[
+			canvasScale * mouse[0],
+			canvasScale * mouse[1],
+			randSgn()*rand(2, 5), 
+			randSgn()*rand(2, 5),
+		],
+		r:randInt(3, 10),
+		color:`${rand(0, 360)}, 60%, 70%`,
+		a: 1,
+		age:0,
+		state:0,
+	});	
+}
+window.addEventListener("mousemove", mousemove);
+
+// draw code
+let getCol = (norm) => 0.25-norm/160000;
+ctx.lineWidth = 1;
 function loop() {
+	// cache norms for 10 frames each time
 	if(frames % 10 == 0) {
 		calculateNorms();
 	}
-
+	if(frames % 60 == 0) {
+		particles = particles.filter((obj) => obj);
+	}
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-
+	// draw / update dots
 	ctx.fillStyle = "#bbb";
-	ctx.lineWidth = 1;
-
 	for(i in dots) { const dot = dots[i];
 		ctx.beginPath();
 		ctx.arc(dot[0], dot[1], 3, 0, 2*Math.PI);
@@ -89,7 +113,7 @@ function loop() {
 
 	}
 
-
+	// draw lines
 	for(let i=0; i<numDots; i++) { const d1 = dots[i];
 		for(let j=0; j<i; j++) { const d2 = dots[j];
 			if(norms[i][j] < 40000) {
@@ -101,6 +125,39 @@ function loop() {
 				ctx.stroke();	
 			}
 		}
+	}
+
+	// draw /update particles
+	for(i in particles) { 
+		let p = particles[i]; 
+		if(p == null) continue; 
+		let data = p.data;
+
+
+		ctx.fillStyle = `hsla(${p.color}, ${p.a})`;
+		ctx.beginPath();
+		ctx.arc(data[0], data[1], p.r, 0, 2*Math.PI);
+		ctx.fill();
+
+		data[0]+=data[2];
+		data[1]+=data[3];
+		data[2]*= 0.95;
+		data[3]*= 0.95;
+
+		//lifecycle
+		if(p.state == 0) {
+			if(p.age > 60) {
+				p.state = 1;
+				p.age = 0;
+			}
+		} 
+		else if(p.state == 1) {
+			p.a -= 0.1;
+			if(p.age > 30) {
+				particles[i] = null;
+			}
+		}
+		p.age++;
 	}
 	
 	// ctx.fillRect(0, 0, 10, 10);
