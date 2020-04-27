@@ -1,11 +1,20 @@
 // helper functions
-// returns bot <= x < top
 let rand = (bot, top) => bot+Math.random()*(top-bot);
 let randInt = (bot, top) => Math.floor(rand(bot, top));
 let randSgn = () => -1 + 2*randInt(0, 2);
 let sq = (x) => x * x;
 let norm = (d1, d2) => sq(d1[0]-d2[0])+sq(d1[1]-d2[1]);
 let dist = (d1, d2) => Math.sqrt(norm(d1, d2));
+let min = (a, b) => (a < b) ? a : b;
+let max = (a, b) => (a > b) ? a : b;
+let diff = (v1, v2) => [v1[0] - v2[0], v1[1] - v2[1]];
+let scale = (c, v) => [c*v[0], c*v[1]];
+let grav = (c, p) => { // force caused by center on point
+	let n = norm(c, p); d = Math.sqrt(n);
+	let vec = diff(p, c);
+	let mult = (n < 1) ? 1 : 1/n;
+	return scale(mult, vec);
+};
 
 // setup code
 let canvas = document.getElementById("canvas");
@@ -52,22 +61,32 @@ calculateNorms();
 // mouse code
 let mouse = [-100, -100];
 let particles = [];
+let mouseticks = 0;
+
+let force = {on:false, age:0};
 function mousemove(e) {
 	mouse[0] = e.pageX; mouse[1] = e.pageY;
 
-	particles.push({
-		data:[
-			canvasScale * mouse[0],
-			canvasScale * mouse[1],
-			randSgn()*rand(2, 5), 
-			randSgn()*rand(2, 5),
-		],
-		r:randInt(3, 10),
-		color:`${rand(0, 360)}, 60%, 70%`,
-		a: 1,
-		age:0,
-		state:0,
-	});	
+	if(mouseticks % 2 == 0) {
+
+		particles.push({
+			data:[
+				canvasScale * mouse[0],
+				canvasScale * mouse[1],
+				randSgn()*rand(2, 5), 
+				randSgn()*rand(2, 5),
+			],
+			r:randInt(3, 10),
+			color:`${rand(0, 360)}, 60%, 70%`,
+			a: 0.6,
+			age:0,
+			state:0,
+		});	
+
+		force.age = 0;
+		force.on = true;
+	}
+	mouseticks++;
 }
 window.addEventListener("mousemove", mousemove);
 
@@ -79,10 +98,15 @@ function loop() {
 	if(frames % 10 == 0) {
 		calculateNorms();
 	}
-	if(frames % 60 == 0) {
+	if(frames % 10 == 0) {
 		particles = particles.filter((obj) => obj);
 	}
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	// update force
+	if(force.on) {
+		force.age++;
+		if(force.age == 50) force.on = false;
+	}
 
 	// draw / update dots
 	ctx.fillStyle = "#bbb";
@@ -96,6 +120,17 @@ function loop() {
 		dot[1]+=dot[3];
 		dot[2]+=dot[4];
 		dot[3]+=dot[5];
+
+		if(dot[2] > 1.5) dot[2] *= 0.95;
+		if(dot[3] > 1.5) dot[3] *= 0.95;
+		if(force.on) {
+			let f = scale(5, grav(scale(canvasScale, mouse), dot));
+			dot[4] = f[0];
+			dot[5] = f[1];
+		} else {
+			dot[4] = 0;
+			dot[5] = 0;
+		}
 
 		let doWipe = false;
 
@@ -127,7 +162,7 @@ function loop() {
 		}
 	}
 
-	// draw /update particles
+	// draw / update particles
 	for(i in particles) { 
 		let p = particles[i]; 
 		if(p == null) continue; 
@@ -144,9 +179,10 @@ function loop() {
 		data[2]*= 0.95;
 		data[3]*= 0.95;
 
+
 		//lifecycle
 		if(p.state == 0) {
-			if(p.age > 60) {
+			if(p.age > 30) {
 				p.state = 1;
 				p.age = 0;
 			}
