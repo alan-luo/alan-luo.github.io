@@ -3,6 +3,7 @@ body {
 	margin:0;
 	padding:0;
 	font-family: 'Source Code Pro', monospace;
+	font-weight:300;
 }
 
 /*
@@ -18,7 +19,7 @@ body {
 /* top layout */
 .canvas-wrapper {
 	position:relative;
-	height: calc(100vh - 2em)!important;
+	height: calc(100vh - 3.25em)!important;
 	width: calc(100vw)!important;
 	background:#f3f3e3;
 	border-bottom:1px solid #ccc;
@@ -86,7 +87,7 @@ canvas {
 
 	p {
 		line-height:1.5em;
-		font-size:14pt;	
+		font-size:12pt;	
 	}
 }
 
@@ -103,7 +104,8 @@ canvas {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	margin:20px auto;
+	padding:2em;
+	margin:0 auto;
 	width:80%;
 	div {
 		display: flex;

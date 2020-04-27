@@ -2,8 +2,10 @@
 <html>
 <head>
 	{% include head.html %}
-	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400&display=swap" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400&display=swap" rel="stylesheet"> -->
 	<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
 	<div class="canvas-wrapper">
@@ -53,7 +55,7 @@
 		</div>
 	</div>
 
-	<script src="./js/canvas.js"></script>
+	<script src="{{ "/js/canvas.js" | prepend: site.baseurl }}"></script>
 
 </body>
 </html>
