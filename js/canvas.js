@@ -15,6 +15,7 @@ let grav = (c, p) => { // force caused by center on point
 	let mult = (n < 1) ? 1 : 1/n;
 	return scale(mult, vec);
 };
+const zero = [0, 0];
 
 // setup code
 let canvas = document.getElementById("canvas");
@@ -122,8 +123,10 @@ function loopCanvas() {
 		dot[2]+=dot[4];
 		dot[3]+=dot[5];
 
-		if(dot[2] > 1) dot[2] *= 0.95;
-		if(dot[3] > 1) dot[3] *= 0.95;
+		if(norm(zero, [dot[2], dot[3]]) > 2) {
+			dot[2] *= 0.95;
+			dot[3] *= 0.95;
+		}
 		if(force.on) {
 			let f = scale(5, grav(scale(canvasScale, mouse), dot));
 			dot[4] = f[0];
