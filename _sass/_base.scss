@@ -6,6 +6,10 @@ body {
 	font-family: 'Source Code Pro', monospace;
 	font-weight:300;
 }
+a {
+	color:black;
+	text-decoration: none;
+}
 
 
 /*
@@ -129,16 +133,21 @@ canvas {
 }
 
 .project-links {
-	padding-right:30px;
+	padding-right:1.5em;
 	border-right:1px solid black;
-	p {
-		text-align:right;
-		font-weight: 300;
-		font-size: 12pt;
+	display: flex;
+	flex-direction: column;
+	div {
+		position:relative;
+		display:flex;
+		flex-direction:row;
+		justify-content:flex-end;
+	}
+	div .anim-link a {
 		text-transform: uppercase;
-		&:first-child {
-			margin-top:4em;
-		}
+	}
+	div .anim-link a.bold {
+		font-weight: 400;
 	}
 }
 
@@ -170,6 +179,14 @@ canvas {
 	  transform: scaleX(1);
 	}
 }
+.project-links div {
+	&:nth-child(2n) .anim-link a:before {
+		background:$light-purple;
+	}
+	&:nth-child(2n+1) .anim-link a:before {
+		background:$light-orange;
+	}
+}
 .project-titles div {
 	&:nth-child(3n) .anim-link a:before {
 		background:$light-green;
@@ -198,10 +215,6 @@ canvas {
 			color:#ccc;
 			transition: color 0.2s;
 			left:-3em;
-		}
-		a {
-			color:black;
-			text-decoration: none;
 		}
 	}
 }
