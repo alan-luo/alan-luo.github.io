@@ -82,9 +82,10 @@ function mousemove(e) {
 			age:0,
 			state:0,
 		});	
-
-		force.age = 0;
-		force.on = true;
+		if(canvasScale * mouse[1] < canvas.height) {
+			force.age = 0;
+			force.on = true;
+		}
 	}
 	mouseticks++;
 }
@@ -121,8 +122,8 @@ function loopCanvas() {
 		dot[2]+=dot[4];
 		dot[3]+=dot[5];
 
-		if(dot[2] > 1.5) dot[2] *= 0.95;
-		if(dot[3] > 1.5) dot[3] *= 0.95;
+		if(dot[2] > 1) dot[2] *= 0.95;
+		if(dot[3] > 1) dot[3] *= 0.95;
 		if(force.on) {
 			let f = scale(5, grav(scale(canvasScale, mouse), dot));
 			dot[4] = f[0];
