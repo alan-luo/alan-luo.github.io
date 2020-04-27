@@ -93,7 +93,7 @@ window.addEventListener("mousemove", mousemove);
 // draw code
 let getCol = (norm) => 0.25-norm/160000;
 ctx.lineWidth = 1;
-function loop() {
+function loopCanvas() {
 	// cache norms for 10 frames each time
 	if(frames % 10 == 0) {
 		calculateNorms();
@@ -198,7 +198,4 @@ function loop() {
 	
 	// ctx.fillRect(0, 0, 10, 10);
 	frames++;
-	window.requestAnimationFrame(loop);
 }
-
-loop();

@@ -100,7 +100,16 @@ layout: compress
 		</div>
 	</div>
 
+	<script src="{{ "/js/game.js" | prepend: site.baseurl }}"></script>
 	<script src="{{ "/js/canvas.js" | prepend: site.baseurl }}"></script>
+	<script>
+		function loop() {
+			loopGame();
+			loopCanvas();
+			requestAnimationFrame(loop);
+		}
+		loop();
+	</script>
 
 </body>
 </html>
