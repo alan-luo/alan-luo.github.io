@@ -2,6 +2,7 @@
 body {
 	margin:0;
 	padding:0;
+	// font-family: 'Roboto Mono', monospace;
 	font-family: 'Source Code Pro', monospace;
 	font-weight:300;
 }
@@ -19,7 +20,7 @@ body {
 /* top layout */
 .canvas-wrapper {
 	position:relative;
-	height: calc(100vh - 3.25em)!important;
+	height: calc(100vh - 1em)!important;
 	width: calc(100vw)!important;
 	background:#f3f3e3;
 	border-bottom:1px solid #ccc;
@@ -87,7 +88,7 @@ canvas {
 
 	p {
 		line-height:1.5em;
-		font-size:12pt;	
+		font-size:14pt;	
 	}
 }
 
@@ -128,7 +129,7 @@ canvas {
 
 .project-links {
 	padding-right:30px;
-	border-right:2px solid black;
+	border-right:1px solid black;
 	p {
 		text-align:right;
 		font-weight: 300;
@@ -144,6 +145,16 @@ canvas {
 	margin-left:30px;
 	p {
 		text-align:left;
+		a {
+			color:black;
+			text-decoration: none;
+			&:hover {
+				font-weight:400;
+			}
+		}
+		span {
+			color:#aaa;
+		}
 	}
 }
 
