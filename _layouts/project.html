@@ -1,0 +1,33 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+	{% include head.html %}
+</head>
+<body>
+	<div class="canvas-wrapper">
+		<canvas id="head-canvas"></canvas>
+		<div class="top-wrapper">
+			{% include header.html %}
+		</div>
+	</div>
+
+	<div class="content">
+		{{ content }}
+	</div>
+	
+
+	<script src="{{ "/js/canvas.js" | prepend: site.baseurl }}"></script>
+	<script>
+		function loop() {
+			loopCanvas();
+			requestAnimationFrame(loop);
+		}
+		loop();
+	</script>
+
+</body>
+</html>

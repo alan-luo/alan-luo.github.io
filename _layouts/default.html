@@ -6,46 +6,12 @@ layout: compress
 <html>
 <head>
 	{% include head.html %}
-	<!-- <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400&display=swap" rel="stylesheet"> -->
-	<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-
-	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
 	<div class="canvas-wrapper">
-		<canvas id="canvas"></canvas>
+		<canvas id="head-canvas"></canvas>
 		<div class="top-wrapper">
-			<div class="header">
-				<div>
-					<div class="logo">
-						<a href="{{ "/" | prepend: site.baseurl }}">
-						{% include logo.svg %}
-						</a>
-					</div>
-				</div>
-				<div class="links">
-					<!-- <p><a>projects</a></p> -->
-					<div>
-						<div class="anim-link"><a href="#">blog</a></div>
-					</div>
-					<div>
-						<div class="anim-link"><a href="#">bio</a></div>
-					</div>
-					<div>
-						<div class="anim-link"><a href="#">CV</a></div>
-					</div>
-					<div>
-						<div class="anim-link"><a href="#">links</a></div>
-					</div>
-					<div>
-						<div class="social-icons">
-							<a href="#" class="link-github"><span class="icon-github-square"></span></a>
-							<a href="#" class="link-linkedin"><span class="icon-linkedin-square"></span></a>
-							<a href="#" class="link-twitter"><span class="icon-twitter-square"></span></a>
-						</div>
-					</div>
-				</div>
-			</div>
+			{% include header.html %}
 
 			<p>Hello! I'm Alan Luo.</p>
 			<p>I'm a creative coder and student.</p>
@@ -55,50 +21,9 @@ layout: compress
 			<div class="button">Be playful.</div>
 		</div>
 	</div>
-	<div class="project-wrapper">
-		<a id="projects"></a>
-		<div class="project-links">
-			<div>
-				<div class="anim-link"><a href="#projects" class="bold">Everything</a></div>
-			</div>
-			<div>
-				<div class="anim-link"><a href="#projects">Featured</a></div>
-			</div>
-			<br>
-			<div>
-				<div class="anim-link"><a href="#projects">Games</a></div>
-			</div>
-			<div>
-				<div class="anim-link"><a href="#projects">Music</a></div>
-			</div>
-			<div>
-				<div class="anim-link"><a href="#projects">Art</a></div>
-			</div>
-		</div>
-		<div class="project-titles">
-			<div> 
-				<div class="anim-link"><a href="#"><span>006</span>Little Planet Procedural</a></div>
-			</div>
-			<div> 
-				<div class="anim-link"><a href="#"><span>005</span>Bear Fruit</a></div>
-			</div>
-			<div> 
-				<div class="anim-link"><a href="#"><span>004</span>Physics Demos</a></div>
-			</div>
-			<div> 
-				<div class="anim-link"><a href="#"><span>003</span>Chatbot</a></div>
-			</div>
-			<div> 
-				<div class="anim-link"><a href="#"><span>002</span>Glitch Art</a></div>
-			</div>
-			<div> 
-				<div class="anim-link"><a href="#"><span>001</span>Physics Letters</a></div>
-			</div>
-		</div>
-		<div class="project-images">
-			<div class="box"></div>
-		</div>
-	</div>
+
+	{% include project-nav.html %}
+	
 
 	<script src="{{ "/js/game.js" | prepend: site.baseurl }}"></script>
 	<script src="{{ "/js/canvas.js" | prepend: site.baseurl }}"></script>

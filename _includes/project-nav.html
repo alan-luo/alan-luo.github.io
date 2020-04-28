@@ -1,0 +1,32 @@
+<div class="project-wrapper">
+	<a id="projects"></a>
+	<div class="project-links">
+		<div>
+			<div class="anim-link"><a href="#projects" class="bold">Everything</a></div>
+		</div>
+		<div>
+			<div class="anim-link"><a href="#projects">Featured</a></div>
+		</div>
+		<br>
+		{% for item in site.data.tags.tags %}
+		<div>
+			<div class="anim-link"><a href="#projects">{{ item.tag }}</a></div>
+		</div>
+   		{% endfor %}
+	</div>
+	<div class="project-titles">
+		{% assign pagelist = site.pages | sort: 'number' | reverse %}
+		{% for page in pagelist %}
+		{% if page.url contains '/project' %}
+        <div> 
+			<div class="anim-link">
+				<a href="{{ page.url }}"><span>{{ page.number }}</span>{{ page.title }}</a>
+			</div>
+		</div>
+		{% endif %}
+	    {% endfor %}
+	</div>
+	<div class="project-images">
+		<div class="box"></div>
+	</div>
+</div>

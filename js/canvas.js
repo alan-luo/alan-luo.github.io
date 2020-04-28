@@ -4,9 +4,6 @@ let randInt = (bot, top) => Math.floor(rand(bot, top));
 let randSgn = () => -1 + 2*randInt(0, 2);
 let sq = (x) => x * x;
 let norm = (d1, d2) => sq(d1[0]-d2[0])+sq(d1[1]-d2[1]);
-let dist = (d1, d2) => Math.sqrt(norm(d1, d2));
-let min = (a, b) => (a < b) ? a : b;
-let max = (a, b) => (a > b) ? a : b;
 let diff = (v1, v2) => [v1[0] - v2[0], v1[1] - v2[1]];
 let scale = (c, v) => [c*v[0], c*v[1]];
 let grav = (c, p) => { // force caused by center on point
@@ -18,7 +15,7 @@ let grav = (c, p) => { // force caused by center on point
 const zero = [0, 0];
 
 // setup code
-let canvas = document.getElementById("canvas");
+let canvas = document.getElementById("head-canvas");
 let ctx = canvas.getContext("2d");
 ctx.translate(0.5, 0.5);
 const canvasScale = 2;
