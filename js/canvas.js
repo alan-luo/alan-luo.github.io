@@ -93,10 +93,9 @@ function mousemove(e) {
 	if(scroll) {
 		mouse[1]-= window.scrollY;
 	}
-	makeParticle(1);
 
 	if(mouseticks % 2 == 0) {
-
+		makeParticle(1);
 			
 		if(canvasScale * mouse[1] < canvas.height) {
 			force.age = 0;
