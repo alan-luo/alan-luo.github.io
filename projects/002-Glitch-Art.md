@@ -3,6 +3,7 @@ layout: project
 title: Glitch Art
 permalink: /project/glitch.html
 number: '002'
+tags: art
 ---
 
 # Glitch Art

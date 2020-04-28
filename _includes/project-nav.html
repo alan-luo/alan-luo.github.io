@@ -2,15 +2,15 @@
 	<a id="projects"></a>
 	<div class="project-links">
 		<div>
-			<div class="anim-link"><a href="#projects" class="bold">Everything</a></div>
+			<div class="anim-link"><a href="#projects" class="tag-link bold" onclick="applyFilter('everything')">everything</a></div>
 		</div>
 		<div>
-			<div class="anim-link"><a href="#projects">Featured</a></div>
+			<div class="anim-link"><a href="#projects" class="tag-link" onclick="applyFilter('featured')">featured</a></div>
 		</div>
 		<br>
 		{% for item in site.data.tags.tags %}
 		<div>
-			<div class="anim-link"><a href="#projects">{{ item.tag }}</a></div>
+			<div class="anim-link"><a href="#projects" class="tag-link" onclick="applyFilter('{{ item.tag }}')">{{ item.tag }}</a></div>
 		</div>
    		{% endfor %}
 	</div>
@@ -18,7 +18,7 @@
 		{% assign pagelist = site.pages | sort: 'number' | reverse %}
 		{% for page in pagelist %}
 		{% if page.url contains '/project' %}
-        <div> 
+        <div class="project-link" data-tags="{{ page.tags }}"> 
 			<div class="anim-link">
 				<a href="{{ page.url }}"><span>{{ page.number }}</span>{{ page.title }}</a>
 			</div>
@@ -30,3 +30,4 @@
 		<div class="box"></div>
 	</div>
 </div>
+<script src="{{ "/js/projects.js" | prepend: site.baseurl }}"></script>

@@ -3,6 +3,7 @@ layout: project
 title: Little Planet Procedural
 permalink: /project/lil-proc.html
 number: '000'
+tags: code art featured
 ---
 
 # Procedural
