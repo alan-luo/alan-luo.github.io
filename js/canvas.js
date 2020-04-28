@@ -72,28 +72,32 @@ let particles = [];
 let mouseticks = 0;
 
 let force = {on:false, age:0};
+function makeParticle(vscale) {
+	particles.push({
+		data:[
+			canvasScale * mouse[0],
+			canvasScale * mouse[1],
+			vscale * randSgn()*rand(2, 5), 
+			vscale * randSgn()*rand(2, 5),
+		],
+		r:randInt(3, 10),
+		color:`${rand(0, 360)}, 60%, 70%`,
+		a: 0.6,
+		age:0,
+		state:0,
+	});
+}
 function mousemove(e) {
 	mouse[0] = e.pageX;
 	mouse[1] = e.pageY;
-	if(canvasParams.scroll) {
+	if(scroll) {
 		mouse[1]-= window.scrollY;
 	}
+	makeParticle(1);
 
 	if(mouseticks % 2 == 0) {
 
-		particles.push({
-			data:[
-				canvasScale * mouse[0],
-				canvasScale * mouse[1],
-				randSgn()*rand(2, 5), 
-				randSgn()*rand(2, 5),
-			],
-			r:randInt(3, 10),
-			color:`${rand(0, 360)}, 60%, 70%`,
-			a: 0.6,
-			age:0,
-			state:0,
-		});	
+			
 		if(canvasScale * mouse[1] < canvas.height) {
 			force.age = 0;
 			force.on = true;
@@ -102,6 +106,13 @@ function mousemove(e) {
 	mouseticks++;
 }
 window.addEventListener("mousemove", mousemove);
+
+function click() {
+	for(let i=0; i<10; i++) {
+		makeParticle(2);
+	}
+}
+window.addEventListener("click", click);
 
 // draw code
 let getCol = (norm) => 0.25-norm/160000;
