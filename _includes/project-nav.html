@@ -20,7 +20,8 @@
 		{% if page.url contains '/project' %}
         <div class="project-link" data-tags="{{ page.tags }}"> 
 			<div class="anim-link">
-				<a href="{{ page.url }}"><span>{{ page.number }}</span>{{ page.title }}</a>
+        		<span class="link-number">{{ page.number }}</span>
+				<a href="{{ page.url }}">{{ page.title }}</a>
 			</div>
 		</div>
 		{% endif %}
