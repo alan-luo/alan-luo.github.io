@@ -240,7 +240,7 @@ a {
 		p.top-caption {
 			font-weight:400;
 			color:$caption-color;
-			font-family:$font-serif;
+			font-family:$font-sans;
 			font-size:14pt;
 			width:30em;
 			margin: 0;
@@ -269,6 +269,13 @@ a {
 		width:36em;
 		font-size:14pt;
 		line-height:1.5em;
+
+		a {
+			color:$link-color;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 }
 

@@ -121,7 +121,7 @@ ctx.lineWidth = 1;
 
 function loopCanvas() {
 	// cache norms for 10 frames each time
-	if(frames % 20 == 0) {
+	if(frames % 10 == 0) {
 		calculateNorms();
 	}
 	if(frames % 10 == 0) {
