@@ -2,15 +2,15 @@
 	<a id="projects"></a>
 	<div class="project-links">
 		<div>
-			<div class="anim-link"><a href="#projects" class="tag-link bold" onclick="applyFilter('everything')">everything</a></div>
+			<div class="anim-link"><a href="#projects" class="bolden tag-link bold" onclick="applyFilter('everything')">everything</a></div>
 		</div>
 		<div>
-			<div class="anim-link"><a href="#projects" class="tag-link" onclick="applyFilter('featured')">featured</a></div>
+			<div class="anim-link"><a href="#projects" class="bolden tag-link" onclick="applyFilter('featured')">featured</a></div>
 		</div>
 		<br>
 		{% for item in site.data.projectinfo.tags %}
 		<div>
-			<div class="anim-link"><a href="#projects" class="tag-link" onclick="applyFilter('{{ item.tag }}')">{{ item.tag }}</a></div>
+			<div class="anim-link"><a href="#projects" class="bolden tag-link" onclick="applyFilter('{{ item.tag }}')">{{ item.tag }}</a></div>
 		</div>
    		{% endfor %}
 	</div>
@@ -21,7 +21,7 @@
         <div class="project-link" data-tags="{{ page.tags }}"> 
 			<div class="anim-link p-a-link" data-project-id="{{ page.number }}">
         		<span class="link-number">{{ page.number }}</span>
-				<a href="{{ page.url }}">{{ page.title }}</a>
+				<a class="bolden" href="{{ page.url }}">{{ page.title }}</a>
 			</div>
 		</div>
 		{% endif %}

@@ -6,20 +6,31 @@ layout: compress
 <html>
 <head>
 	{% include head.html %}
+	{% include head-body.html %}
 </head>
 <body>
-	<div class="canvas-wrapper">
+	<div class="canvas-wrapper project-canvas">
 		<canvas id="head-canvas"></canvas>
 		<div class="top-wrapper">
 			{% include header.html %}
+			<div class="top-label">
+				<h1 class="top-title"><span>{{ page.number }}</span>{{ page.title }}</h1>
+				<p class="top-caption">{{ page.caption }}</p>
+			</div>
+			<div class="body">
+				{{ content }}
+			</div>
 		</div>
-	</div>
-
-	<div class="content">
-		{{ content }}
 	</div>
 	
 
+	
+	<script>
+		canvasParams = { 
+			numDots:30,
+			scroll: true,
+		};
+	</script>
 	<script src="{{ "/js/canvas.js" | prepend: site.baseurl }}"></script>
 	<script>
 		function loop() {

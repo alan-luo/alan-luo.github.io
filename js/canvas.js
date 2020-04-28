@@ -1,3 +1,14 @@
+// do params
+let myFill = "#bbb";
+let numDots = 100;
+let scroll = false;
+
+if(typeof(canvasParams) != "undefined") {
+	if(canvasParams.fillColor) myFill = canvasParams.fillColor;
+	if(canvasParams.numDots) numDots = canvasParams.numDots;
+	if(canvasParams.scroll) scroll = canvasParams.scroll;
+}
+
 // helper functions
 let rand = (bot, top) => bot+Math.random()*(top-bot);
 let randInt = (bot, top) => Math.floor(rand(bot, top));
@@ -29,7 +40,6 @@ window.addEventListener("resize", resize);
 
 
 // init code
-const numDots = 100;
 
 let frames = 0;
 let dots = [];
@@ -63,7 +73,11 @@ let mouseticks = 0;
 
 let force = {on:false, age:0};
 function mousemove(e) {
-	mouse[0] = e.pageX; mouse[1] = e.pageY;
+	mouse[0] = e.pageX;
+	mouse[1] = e.pageY;
+	if(canvasParams.scroll) {
+		mouse[1]-= window.scrollY;
+	}
 
 	if(mouseticks % 2 == 0) {
 
@@ -92,9 +106,11 @@ window.addEventListener("mousemove", mousemove);
 // draw code
 let getCol = (norm) => 0.25-norm/160000;
 ctx.lineWidth = 1;
+
+
 function loopCanvas() {
 	// cache norms for 10 frames each time
-	if(frames % 10 == 0) {
+	if(frames % 20 == 0) {
 		calculateNorms();
 	}
 	if(frames % 10 == 0) {
@@ -108,7 +124,7 @@ function loopCanvas() {
 	}
 
 	// draw / update dots
-	ctx.fillStyle = "#bbb";
+	ctx.fillStyle = myFill;
 	for(i in dots) { const dot = dots[i];
 		ctx.beginPath();
 		ctx.arc(dot[0], dot[1], 3, 0, 2*Math.PI);
