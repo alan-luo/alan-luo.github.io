@@ -25,3 +25,5 @@ function applyFilter(filter) {
 		else remClass(link, "bold");
 	}
 }
+
+let thumbs = document.getElementsByClassName("thumb-image");

@@ -28,6 +28,18 @@
 	    {% endfor %}
 	</div>
 	<div class="project-images">
+        <div class="img-wrapper">
+	        	<div class="thumb-image image-box">
+	        		<div></div>
+	        		<p>hover over a project to see a thumbnail</p>
+	        	</div>
+			{% for page in pagelist %}
+			{% if page.url contains '/project' %}
+				<img class="thumb-image hidden" src="{{ page.thumb | prepend: "/img/thumbs/" | prepend: site.baseurl }}" alt="{{ item.alt }}" />
+			{% endif %}
+		    {% endfor %}
+		</div>
+		
 		{% for item in site.data.projectinfo.featuredthumbs %}
 		<div class="img-wrapper">
 			<img src="{{ item.name | prepend: "/img/thumbs/" | prepend: site.baseurl }}" alt="{{ item.alt }}" />

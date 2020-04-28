@@ -307,7 +307,7 @@ canvas {
 .project-titles {
 	flex-grow:1;
 	margin-left:1.5em;
-	margin-right:1em;
+	margin-right:3em;
 	display:flex;
 	flex-direction:column;
 
@@ -338,6 +338,21 @@ canvas {
 		margin-bottom:1em;
 		&:last-child {
 			margin-bottom:0;
+		}
+	}
+	.image-box {
+		position:relative;
+		display:flex;
+		div {
+			height:0;
+			padding-top:75%;
+			border: 1px solid black;
+		}
+		p {
+			width:60%;
+			margin:30% 20%;
+			position:absolute;
+			text-align:center;
 		}
 	}
 }
