@@ -43,3 +43,5 @@ After high school, I took a year off, during which I did some freelancing and al
 I'm still young. Only time will tell what exciting things the future may bring.
 
 Until then, if you're interested in hearing more about how I think, visit my [blog]({{ site.data.links.blog }}) or follow me on [Twitter]({{ site.data.links.twitter }}).
+
+If you want to work together, shoot me an email at [me@alanluo.com](mailto:me@alanluo.com).

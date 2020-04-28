@@ -29,7 +29,7 @@ const zero = [0, 0];
 let canvas = document.getElementById("head-canvas");
 let ctx = canvas.getContext("2d");
 ctx.translate(0.5, 0.5);
-const canvasScale = 2;
+const canvasScale = 1.8;
 
 function resize() {
 	canvas.width = canvasScale*canvas.offsetWidth;	
