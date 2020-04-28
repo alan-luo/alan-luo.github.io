@@ -8,7 +8,7 @@
 			<div class="anim-link"><a href="#projects" class="tag-link" onclick="applyFilter('featured')">featured</a></div>
 		</div>
 		<br>
-		{% for item in site.data.tags.tags %}
+		{% for item in site.data.projectinfo.tags %}
 		<div>
 			<div class="anim-link"><a href="#projects" class="tag-link" onclick="applyFilter('{{ item.tag }}')">{{ item.tag }}</a></div>
 		</div>
@@ -27,7 +27,11 @@
 	    {% endfor %}
 	</div>
 	<div class="project-images">
-		<div class="box"></div>
+		{% for item in site.data.projectinfo.featuredthumbs %}
+		<div class="img-wrapper">
+			<img src="{{ item.name | prepend: "/img/thumbs/" | prepend: site.baseurl }}" alt="{{ item.alt }}" />
+		</div>
+   		{% endfor %}
 	</div>
 </div>
 <script src="{{ "/js/projects.js" | prepend: site.baseurl }}"></script>
