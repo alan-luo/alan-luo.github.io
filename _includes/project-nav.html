@@ -19,7 +19,7 @@
 		{% for page in pagelist %}
 		{% if page.url contains '/project' %}
         <div class="project-link" data-tags="{{ page.tags }}"> 
-			<div class="anim-link" data-project-id="{{ page.number }}">
+			<div class="anim-link p-a-link" data-project-id="{{ page.number }}">
         		<span class="link-number">{{ page.number }}</span>
 				<a href="{{ page.url }}">{{ page.title }}</a>
 			</div>

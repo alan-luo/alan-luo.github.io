@@ -27,7 +27,7 @@ function applyFilter(filter) {
 }
 
 let thumbs = document.getElementsByClassName("thumb-image");
-let animLinks = document.getElementsByClassName("anim-link");
+let animLinks = document.getElementsByClassName("p-a-link");
 function getHover(hoverId) {
 	return function() {
 		let id = hoverId;
