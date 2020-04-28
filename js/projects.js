@@ -27,3 +27,23 @@ function applyFilter(filter) {
 }
 
 let thumbs = document.getElementsByClassName("thumb-image");
+let animLinks = document.getElementsByClassName("anim-link");
+function getHover(hoverId) {
+	return function() {
+		let id = hoverId;
+
+		for(let i=0; i<thumbs.length; i++) {
+			let thumb = thumbs[i];
+			let projectId = thumb.getAttribute('data-project-id');
+
+			if(projectId == id) remClass(thumb, "hide-image");
+			else addClass(thumb, "hide-image");
+		}
+	}
+}
+for(let i=0; i<animLinks.length; i++) {
+	let link = animLinks[i];
+	let id = link.getAttribute('data-project-id');
+	let myHover = getHover(id);
+	link.addEventListener("mouseover", myHover);
+}

@@ -19,7 +19,7 @@
 		{% for page in pagelist %}
 		{% if page.url contains '/project' %}
         <div class="project-link" data-tags="{{ page.tags }}"> 
-			<div class="anim-link">
+			<div class="anim-link" data-project-id="{{ page.number }}">
         		<span class="link-number">{{ page.number }}</span>
 				<a href="{{ page.url }}">{{ page.title }}</a>
 			</div>
@@ -28,14 +28,14 @@
 	    {% endfor %}
 	</div>
 	<div class="project-images">
-        <div class="img-wrapper">
-	        	<div class="thumb-image image-box">
+        <div class="img-wrapper thumb-wrapper">
+	        	<div class="thumb-image image-box" data-project-id="-1">
 	        		<div></div>
 	        		<p>hover over a project to see a thumbnail</p>
 	        	</div>
 			{% for page in pagelist %}
 			{% if page.url contains '/project' %}
-				<img class="thumb-image hidden" src="{{ page.thumb | prepend: "/img/thumbs/" | prepend: site.baseurl }}" alt="{{ item.alt }}" />
+				<img class="thumb-image hide-image" src="{{ page.thumb | prepend: "/img/thumbs/" | prepend: site.baseurl }}" alt="{{ item.alt }}" data-project-id="{{ page.number }}"/>
 			{% endif %}
 		    {% endfor %}
 		</div>

@@ -340,21 +340,38 @@ canvas {
 			margin-bottom:0;
 		}
 	}
-	.image-box {
-		position:relative;
-		display:flex;
-		div {
-			height:0;
-			padding-top:75%;
-			border: 1px solid black;
+	.thumb-wrapper {
+		.image-box {
+			position:relative;
+			display:flex;
+			div {
+				height:0;
+				padding-top:75%;
+				outline:1px solid black;
+				outline-offset:-1px;
+			}
+			p {
+				width:60%;
+				margin:30% 20%;
+				position:absolute;
+				text-align:center;
+			}
 		}
-		p {
-			width:60%;
-			margin:30% 20%;
+
+		position:relative;
+		.thumb-image {
+			transition: opacity 0.25s;
 			position:absolute;
-			text-align:center;
+			&.image-box {
+				position:relative;
+				opacity:1;
+			}
+			&.hide-image, &.image-box.hide-image {
+				opacity:0;
+			}
 		}
 	}
 }
+
 
 
