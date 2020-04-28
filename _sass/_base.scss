@@ -181,7 +181,20 @@ a {
 	}
 
 }
-
+@keyframes btnAnim {
+	0%   { box-shadow: 0 0 0 2px $not-black; }
+	2%   { box-shadow: 0 0 0 2px $light-orange; }
+	10%  { box-shadow: 0 0 0 2px $light-blue; }
+	20%  { box-shadow: 0 0 0 2px $light-red; }
+	30%  { box-shadow: 0 0 0 2px $light-green; }
+	40%  { box-shadow: 0 0 0 2px $light-orange; }
+	50%  { box-shadow: 0 0 0 2px $light-blue; }
+	60%  { box-shadow: 0 0 0 2px $light-red; }
+	70%  { box-shadow: 0 0 0 2px $light-green; }
+	80%  { box-shadow: 0 0 0 2px $light-orange; }
+	90%  { box-shadow: 0 0 0 2px $light-green; }
+   100%  { box-shadow: 0 0 0 2px $light-blue; }
+}
 
 .top-wrapper {
 	width:100%;
@@ -213,10 +226,13 @@ a {
 		align-self:center;
 		transition: all 0.5s;
 
+
 		&:hover {
 			border-radius:15px;
-			box-shadow: 0 0 0 2px $light-blue;
+			// box-shadow: 0 0 0 2px $light-blue;
 			cursor:pointer;
+			animation: btnAnim 12s linear;
+			animation-fill-mode: forwards;
 		}
 	}
 
