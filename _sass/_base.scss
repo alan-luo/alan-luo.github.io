@@ -235,7 +235,7 @@ canvas {
 	flex-direction: row;
 	justify-content: space-between;
 	width:100%;
-	max-height: calc(100vh - 3.25em) !important;
+	max-height: calc(100vh - 9em) !important;
 	margin:2em auto;
 	div {
 		display: flex;
@@ -260,11 +260,33 @@ canvas {
 	}
 }
 .project-titles, .project-images {
-	overflow-y:scroll;
+    overflow-y: scroll;
+    // scrollbar-width: none; /* Firefox */
+    // -ms-overflow-style: none;  /* Internet Explorer 10+ */
+	/* width */
+	&::-webkit-scrollbar {
+	  width: 7px;
+	}
+	&:hover::-webkit-scrollbar-thumb {
+		background:#888;	
+	}
+
+	/* Track */
+	&::-webkit-scrollbar-track {
+	  background: transparent;
+	}
+
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+	  background: #ccc;
+	  border-radius: 5px;
+	}
+	
 }
 
 .project-titles {
 	flex-grow:1;
+	margin-right:1em;
 }
 
 .project-links {
@@ -319,6 +341,7 @@ canvas {
 	}
 }
 .project-images {
+	padding-right:1em;
 	.img-wrapper {
 		img {
 			max-width:400px;
