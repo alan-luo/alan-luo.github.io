@@ -9,13 +9,13 @@
 <div class="links">
 	<!-- <p><a>projects</a></p> -->
 	<div>
-		<div class="anim-link"><a href="#">blog</a></div>
+		<div class="anim-link"><a href="{{ site.data.links.blog }}">blog</a></div>
 	</div>
 	<div>
-		<div class="anim-link"><a href="#">bio</a></div>
+		<div class="anim-link"><a href="{{ site.data.links.bio | prepend: site.baseurl }}">bio</a></div>
 	</div>
 	<div>
-		<div class="anim-link"><a href="#">CV</a></div>
+		<div class="anim-link"><a href="{{ site.data.links.cv | prepend: site.baseurl }}">CV</a></div>
 	</div>
 	<div>
 		<div class="anim-link"><a href="#">links</a></div>

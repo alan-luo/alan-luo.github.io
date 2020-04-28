@@ -5,6 +5,18 @@ body {
 	// font-family: 'Roboto Mono', monospace;
 	font-family: 'Source Code Pro', monospace;
 	font-weight:300;
+
+    overflow-y: scroll;
+	&::-webkit-scrollbar {
+	  width: 4px;
+	}
+	&::-webkit-scrollbar-track {
+	  background: #ccc;
+	}
+	&::-webkit-scrollbar-thumb {
+	  background: #888;
+	  border-radius: 5px;
+	}
 }
 a {
 	color:black;
@@ -282,7 +294,7 @@ canvas {
 }
 .project-links {
 	padding-right:1.5em;
-	border-right:1px solid black;
+	border-right:1px solid #888;
 	display: flex;
 	flex-direction: column;
 	div {
@@ -349,9 +361,10 @@ canvas {
 			position:relative;
 			display:flex;
 			div {
+				background:$background-color-2;
 				height:0;
 				padding-top:75%;
-				outline:1px solid black;
+				outline:1px solid #888;
 				outline-offset:-1px;
 			}
 			p {
