@@ -9,11 +9,14 @@ tags:
 
 featuredthumbs:
 
-- name: 1.jpg
+- thumb: 1.jpg
   alt: image 1
+  url: /project/lil-proc.html
 
-- name: 2.jpg
+- thumb: 2.jpg
   alt: image 2
+  url: /project/glitch.html
 
-- name: 3.png
+- thumb: 3.png
   alt: image 3
+  url: /project/conv.html

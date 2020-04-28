@@ -35,14 +35,18 @@
 	        	</div>
 			{% for page in pagelist %}
 			{% if page.url contains '/project' %}
-				<img class="thumb-image hide-image" src="{{ page.thumb | prepend: "/img/thumbs/" | prepend: site.baseurl }}" alt="{{ item.alt }}" data-project-id="{{ page.number }}"/>
+				<a class="thumb-image hide-image" href="{{ page.url | prepend: site.baseurl}}" data-project-id="{{ page.number }}">
+				<img src="{{ page.thumb | prepend: "/img/thumbs/" | prepend: site.baseurl }}" alt="{{ item.alt }}" />
+				</a>
 			{% endif %}
 		    {% endfor %}
 		</div>
 		
 		{% for item in site.data.projectinfo.featuredthumbs %}
 		<div class="img-wrapper">
-			<img src="{{ item.name | prepend: "/img/thumbs/" | prepend: site.baseurl }}" alt="{{ item.alt }}" />
+			<a href="{{ item.url | prepend: site.baseurl}}">
+			<img src="{{ item.thumb | prepend: "/img/thumbs/" | prepend: site.baseurl }}" alt="{{ item.alt }}" />
+			</a>
 		</div>
    		{% endfor %}
 	</div>

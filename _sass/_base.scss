@@ -333,6 +333,10 @@ canvas {
 	.img-wrapper {
 		img {
 			max-width:400px;
+			transition: filter 0.25s;
+			&:hover {
+				filter:brightness(0.8);
+			}
 		}
 
 		margin-bottom:1em;
@@ -356,6 +360,9 @@ canvas {
 				position:absolute;
 				text-align:center;
 			}
+		}
+		&:hover img {
+			filter:brightness(0.8);
 		}
 
 		position:relative;
