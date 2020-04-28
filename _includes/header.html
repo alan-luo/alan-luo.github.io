@@ -1,10 +1,6 @@
 <div class="header {{ include.class }}">
 <div>
-	<div class="logo">
-		<a href="{{ "/" | prepend: site.baseurl }}">
-		{% include logo.svg %}
-		</a>
-	</div>
+	{% include logo.html %}
 </div>
 <div class="links">
 	<!-- <p><a>projects</a></p> -->
