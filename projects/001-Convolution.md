@@ -10,7 +10,7 @@ tags: code
 
 # Convolution
 
-**[View the project here](/src/conv.html)**.
+**[View the project here](/src/conv-s.html)**.
 
 This was a Javascript demo I made to visualize 1-dimensional [convolution]().
 
