@@ -4,6 +4,7 @@ title: Glitch Art
 permalink: /project/glitch.html
 thumb: 3.png
 number: '002'
+caption: Glitchy art.
 tags: art
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Splat
-permalink: /project/glitch.html
+permalink: /project/splat.html
 thumb: 3.png
 number: '005'
 tags: art

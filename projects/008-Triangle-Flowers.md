@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Triangle Flowers
-permalink: /project/glitch.html
+permalink: /project/tris.html
 thumb: 3.png
 number: '008'
 tags: art

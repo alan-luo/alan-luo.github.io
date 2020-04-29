@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Procedural Parallax
-permalink: /project/glitch.html
+permalink: /project/parallax.html
 thumb: 3.png
 number: '005'
 tags: art

@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Fabric
-permalink: /project/glitch.html
+permalink: /project/fabric.html
 thumb: 3.png
 number: '007'
 tags: art

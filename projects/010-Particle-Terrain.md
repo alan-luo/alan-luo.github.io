@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Particle Terrain
-permalink: /project/glitch.html
+permalink: /project/particle-terrain.html
 thumb: 3.png
 number: '010'
 tags: art

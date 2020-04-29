@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Starfield
-permalink: /project/glitch.html
+permalink: /project/stars.html
 thumb: 3.png
 number: '004'
 tags: art

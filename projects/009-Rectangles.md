@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Rectangles
-permalink: /project/glitch.html
+permalink: /project/rect.html
 thumb: 3.png
 number: '009'
 tags: art

@@ -9,7 +9,6 @@ layout: compress
 		.canvas-wrapper {
 			background:{{ page.canvas-background }} !important;
 		}
-		
 	</style>
 </head>
 <body>
@@ -17,12 +16,14 @@ layout: compress
 		<canvas id="head-canvas"></canvas>
 		<div class="top-wrapper">
 			{% include header.html %}
-			<div class="top-label">
-				<h1 class="top-title"><span>{{ page.number }}</span>{{ page.title }}</h1>
-				<p class="top-caption">{{ page.caption }}</p>
-			</div>
 			<div class="body">
-				{{ content }}
+				<div class="body-label">
+					<h1 class="label-title"><span>{{ page.number }}</span>{{ page.title }}</h1>
+					<p class="label-caption">{{ page.caption }}</p>
+				</div>
+				<div class="body-content">
+					{{ content }}
+				</div>
 			</div>
 		</div>
 	</div>

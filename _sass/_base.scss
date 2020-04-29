@@ -213,9 +213,52 @@ a {
 		}
 	}
 
-	.top-label {
-		padding: 1em 6em;
-		h1.top-title {
+}
+/* project styles */
+.body {
+	width:42em;
+	color:$not-black;
+	// margin:2em 6em;
+	margin:0 auto;
+	font-weight:400;
+	display:flex;
+	flex-direction:column;
+	align-items:flex-start;
+	.body-content {
+		h1 {
+			position: relative;
+			&:before {
+				content:"#";
+				font-weight:300;
+				font-size:0.8em;
+				color:$light-gray;
+				position:absolute;
+				top:0.2em;
+				left:-0.9em;
+			}
+			&.h-nopre:before {
+				content:"";
+			}
+			&.h-big {
+				font-size:40pt;
+			}
+		}
+		p {
+			margin-left:0;
+			margin-right:0;
+			font-size:14pt;
+			line-height:1.5em;
+
+			a {
+				color:$link-color;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+	.body-label {
+		h1.label-title {
 			margin:0.5em 0;
 			font-family:$font-mono;
 			font-weight: 300;
@@ -230,51 +273,16 @@ a {
 				bottom:0.1em;
 			}
 		}
-		p.top-caption {
+		p.label-caption {
 			font-weight:400;
 			color:$caption-color;
 			font-family:$font-sans;
 			font-size:14pt;
-			width:30em;
+			// width:24em;
 			margin: 0;
 		}
-	}
-}
-.body {
-	color:$not-black;
-	margin:2em 6em;
-	font-weight:400;
-	h1 {
-		position: relative;
-		&:before {
-			content:"#";
-			font-weight:300;
-			font-size:0.8em;
-			color:$light-gray;
-			position:absolute;
-			top:0.2em;
-			left:-0.9em;
-		}
-		&.h-nopre:before {
-			content:"";
-		}
-		&.h-big {
-			font-size:40pt;
-		}
-	}
-	p {
-		margin-left:0;
-		margin-right:0;
-		width:36em;
-		font-size:14pt;
-		line-height:1.5em;
-
-		a {
-			color:$link-color;
-			&:hover {
-				text-decoration: underline;
-			}
-		}
+		padding-bottom:2em;
+		border-bottom:1px solid $border-color;
 	}
 }
 

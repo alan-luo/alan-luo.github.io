@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Particle Sim
-permalink: /project/glitch.html
+permalink: /project/particles.html
 thumb: 3.png
 number: '003'
 tags: art
