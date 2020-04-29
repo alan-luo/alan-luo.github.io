@@ -2,9 +2,9 @@
 layout: project
 title: Particle Sim
 permalink: /project/particles.html
-thumb: 3.png
+thumb: particles.gif
 number: '003'
-tags: art
+tags: art code featured
 ---
 
 # Glitch Art

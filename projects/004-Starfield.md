@@ -1,10 +1,10 @@
 ---
-layout: project
+layout: stub
 title: Starfield
 permalink: /project/stars.html
-thumb: 3.png
+thumb: stars.gif
 number: '004'
-tags: art
+tags: code featured
 ---
 
 # Glitch Art

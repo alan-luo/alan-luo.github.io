@@ -2,10 +2,10 @@
 	<a id="projects"></a>
 	<div class="project-links">
 		<div>
-			<div class="anim-link"><a href="#projects" class="bolden tag-link bold" onclick="applyFilter('everything')">everything</a></div>
+			<div class="anim-link"><a href="#projects" class="bolden tag-link bold" onclick="applyFilter('featured')">featured</a></div>
 		</div>
 		<div>
-			<div class="anim-link"><a href="#projects" class="bolden tag-link" onclick="applyFilter('featured')">featured</a></div>
+			<div class="anim-link"><a href="#projects" class="bolden tag-link" onclick="applyFilter('everything')">everything</a></div>
 		</div>
 		<br>
 		{% for item in site.data.projectinfo.tags %}
@@ -18,7 +18,7 @@
 		{% assign pagelist = site.pages | sort: 'number' | reverse %}
 		{% for page in pagelist %}
 		{% if page.url contains '/project' %}
-        <div class="project-link" data-tags="{{ page.tags }}"> 
+        <div class="project-link{% if page.tags contains 'featured' %}{%else%} hidden{% endif %}" data-tags="{{ page.tags }}"> 
 			<div class="anim-link p-a-link" data-project-id="{{ page.number }}">
         		<span class="link-number">{{ page.number }}</span>
 				<a class="bolden" href="{{ page.url }}">{{ page.title }}</a>

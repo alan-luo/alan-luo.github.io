@@ -2,10 +2,10 @@
 layout: project
 title: Glitch Art
 permalink: /project/glitch.html
-thumb: 3.png
+thumb: glitch.jpg
 number: '002'
 caption: Glitchy art.
-tags: art
+tags: art featured
 ---
 
 # Glitch Art

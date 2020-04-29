@@ -2,7 +2,7 @@
 layout: project
 title: Convolution
 permalink: /project/conv.html
-thumb: 2.jpg
+thumb: conv.jpg
 number: '001'
 tags: code
 ---

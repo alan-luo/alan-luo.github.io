@@ -4,7 +4,7 @@ title: Procedural Parallax
 permalink: /project/parallax.html
 thumb: 3.png
 number: '005'
-tags: art
+tags: art code featured
 ---
 
 # Glitch Art

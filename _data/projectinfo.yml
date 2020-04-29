@@ -9,12 +9,12 @@ tags:
 
 featuredthumbs:
 
-- thumb: 1.jpg
-  alt: image 1
+- thumb: planet.jpg
+  alt: procedural planet
   url: /project/lil-proc.html
 
-- thumb: 2.jpg
-  alt: image 2
+- thumb: glitch2.jpg
+  alt: glitch bench
   url: /project/glitch.html
 
 - thumb: 3.png

@@ -4,7 +4,7 @@ title: Fabric
 permalink: /project/fabric.html
 thumb: 3.png
 number: '007'
-tags: art
+tags: code featured
 ---
 
 # Glitch Art
