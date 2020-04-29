@@ -1,10 +1,10 @@
 ---
 layout: project
 title: Primordial Soup
-permalink: /project/physics.html
+permalink: /project/soup.html
 thumb: 3.png
 number: '013'
-tags: art
+tags: art featured code
 ---
 
 # Glitch Art

@@ -1,12 +1,14 @@
 ---
 layout: project
-title: Physics Demos
-permalink: /project/physics.html
-thumb: 3.png
+title: Old Sketches
+permalink: /project/sketches.html
+thumb: demos.jpg
 number: '011'
-tags: art
+tags: code
 ---
 
-# Physics Demos
+# Sketches from Bygone Days
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque temporibus exercitationem molestias doloribus vero commodi perspiciatis, dolorem voluptas dolore quisquam laboriosam. Quis enim corrupti odit esse eum ullam repudiandae rerum?
+[Link to collection](http://alan-luo.github.io/demos/).
+
+This is an old collection of demos, back when I thought stacked box shadows are cool. (Though they still kinda are.) Many of these I didn't consider enough to warrant their own page, which is why they're held separately here.

@@ -1,10 +1,10 @@
 ---
 layout: project
 title: Ablobalypse
-permalink: /project/physics.html
+permalink: /project/blobs.html
 thumb: 3.png
 number: '014'
-tags: art
+tags: games featured
 ---
 
 # Glitch Art
