@@ -81,6 +81,8 @@ a {
 .section {
 	border-bottom:1px dashed $bright-blue;
 	padding:6px 0;
+	display:flex;
+	flex-direction:column;
 	&:last-child { border: none; }
 
 	h2, p {
