@@ -12,14 +12,14 @@
 		transition: transform 1.0s;
 		&:hover {
 			transform: rotate(360deg);
-			.cls-1 {
-				fill:$light-green;
-			}
 			.cls-2 {
+				fill:$light-red;
+			}
+			.cls-1 {
 				fill:$light-blue;
 			}
 			.cls-3 {
-				fill:$light-red;
+				fill:$light-orange;
 			}
 		}
 	}
