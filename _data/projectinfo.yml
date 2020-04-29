@@ -17,6 +17,6 @@ featuredthumbs:
   alt: glitch bench
   url: /project/glitch.html
 
-- thumb: 3.png
-  alt: image 3
-  url: /project/conv.html
+- thumb: particles.gif
+  alt: particle sim
+  url: /project/particles.html
