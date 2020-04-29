@@ -1,20 +1,16 @@
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width initial-scale=1" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+<title>{{ page.title }} | {{ site.title }}</title>
+<meta name="description" content="{{ site.description }}">
+
+<link rel="stylesheet" href="{{ "/css/font.css" | prepend: site.baseurl }}">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Source+Code+Pro:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
 {% comment %}
 <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 {% endcomment %}
-
-<title>{{ page.title }} | {{ site.title }}</title>
-
-<meta name="description" content="{{ site.description }}">
-
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Source+Code+Pro:wght@300;400&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-<link rel="stylesheet" href="{{ "/css/font.css" | prepend: site.baseurl }}">
-
-
-<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">

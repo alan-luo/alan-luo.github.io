@@ -1,12 +1,16 @@
 ---
 layout: compress
 ---
-
 <!DOCTYPE html>
 <html>
 <head>
 	{% include head.html %}
-	{% include head-body.html %}
+	<style>
+		.canvas-wrapper {
+			background:{{ page.canvas-background }} !important;
+		}
+		
+	</style>
 </head>
 <body>
 	<div class="canvas-wrapper project-canvas">

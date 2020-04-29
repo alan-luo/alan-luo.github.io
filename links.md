@@ -3,6 +3,7 @@ layout: project
 permalink: /links/
 title: Links to check out
 caption: Things you should check out.
+canvas-background: '#ebf0ff'
 ---
 # Projects
 [Little Planet Procedural]({{ "/project/lil-proc.html" | prepend: site.baseurl }})
