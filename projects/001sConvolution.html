@@ -1,0 +1,401 @@
+---
+layout: stub
+title: Convolution
+permalink: /src/conv.html
+head: <link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet">
+---
+<html>
+    <head>
+        <title>Visualizing Convolution</title>
+        
+        <script src="/lib/js/simplex.js"></script>
+        <script src="/lib/js/numbers.js"></script>
+        <script src="/lib/js/d3.min.js"></script>
+        <script src="/lib/js/jquery.min.js"></script>
+
+        <style>
+            body {
+                font-family:'Raleway';
+                background:#333;
+            }
+            .main {
+                width:90%;
+                margin:2em auto;
+                /*background:white;*/
+            }
+            .title {
+                font-size:2em;
+                text-align:center;
+                text-transform: uppercase;
+                color:white;
+            }
+
+            .svgholder {
+                width:100%;
+                overflow:scroll;
+                /*border:1px solid black;*/
+            }
+            svg {
+            }
+            .weightval {
+                width:3em;
+            }
+
+            .panel {
+                margin-right:0.5em;
+                margin-bottom:0.5em;
+                background:white;
+                border-radius:4px;
+            }
+            .panelheader {
+                width:100%;
+                background:#e3e3e3;
+                border-radius:4px;
+            }
+            .panelheader h2 {
+                font-size:1.2em;
+                margin:0;
+                padding:0.4em 0.7em;
+            }
+
+            .ui {
+                display:flex;
+                flex-direction:row;
+                width:100%;
+            }
+            .leftside {
+                flex-grow:1;
+                max-width:70%;
+            }
+            .rightside {
+                flex-grow:1;
+                display:flex;
+                flex-direction: column;
+            }
+            .rightside .panel {
+                flex-grow:1;
+            }
+            .rightside .convolve.convolve, .rightside .current.current {
+                flex-grow:0;
+            }
+            .convolve h3 {
+                margin:0;
+                text-align:center;
+                padding:0.5em;
+                background:#e3e3e3;
+                border-radius:3px;
+                transition: background 0.1s, color 0.1s;
+            }
+            .convolve h3:hover {
+                background:#88F;
+                color:white;
+                cursor:pointer;
+            }
+
+            .window {
+                width:100%;
+                display:flex;
+                flex-direction:row;
+            }
+            .window input {
+                margin:0.2em;
+                border:2px solid #e3e3e3;
+                text-align:center;
+                flex-grow:1;
+                font-size:16pt;
+                max-width:5em;
+
+            }
+
+            .commonwindows {
+                padding:0.5em;
+                padding-bottom:0;
+                margin:0 auto;
+                margin-bottom:-3em;
+                display:flex;
+                flex-direction: row;
+                max-width:300px;
+                overflow-x:scroll;
+            }
+            .commonwindow {
+                position:relative;
+                width:33%;
+                border:1px solid black;
+                margin-right:0.2em;
+                margin-bottom:0.2em;
+                display:inline-block;
+                background:#e3e3e3;
+            }
+            .commonwindow svg {
+                margin:0;
+                padding:0;
+            }
+            .desc {
+                padding:0;
+                margin:0;
+                width:100%;
+                background:rgba(0, 0, 0, 0.7);
+                color:white;
+                position:absolute;
+                text-align:center;
+                width:100%;
+                height:100%;
+                opacity:0;
+                transition:opacity 0.2s;
+            }
+            .desc:hover {
+                cursor:pointer;
+                opacity:1;
+            }
+
+            .datasets {
+                padding:0.2em;
+                margin-bottom:-3em;
+            }
+            .datasets td {
+                background:#e3e3e3;
+                color:black;
+                padding:0.3em 0.4em;
+                text-align:center;
+                margin: 0.5em;
+            }
+            .datasets td:hover {
+                cursor:pointer;
+                background:#888;
+                color:white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <section class="main">
+            <h1 class="title">Visualizing Convolution</h1>
+
+            <div class="ui">
+                <div class="leftside">
+                    <div class="panel">
+                        <div class="panelheader">
+                            <h2>Signal Graph</h2>
+                        </div>
+                        <div class="svgholder">
+                            <svg id="svg" width="2400" height="500"></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rightside">
+                    <div class="panel">
+                        <div class="panelheader">
+                            <h2>Select Dataset</h2>
+                        </div>
+                        <table class="datasets">
+                            <tr>
+                                <td onclick="setData(0);">Generic Perlin</td>
+                                <td onclick="setData(1);">Harsh Edge</td>
+                                <td onclick="setData(2);">Erratic<br>Perlin</td>
+                            </tr>
+                            <tr>
+                                <td onclick="setData(3);">White<br>Noise</td>
+                                <td onclick="setData(4);">Noisy<br>Perlin</td>
+                                <td onclick="setData(5);">Periodic Peaks</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="panel">
+                        <div class="panelheader">
+                            <h2>Common Windows</h2>
+                        </div>
+                        <div class="commonwindows">
+                            
+                        </div>
+                    </div>
+                    <div class="panel current">
+                        <div class="panelheader">
+                            <h2>Current Window</h2>
+                        </div>
+                        <div class="window">
+                            <input type="text" value="0.33" class="window-val1" />
+                            <input type="text" value="0.34" class="window-val2" />
+                            <input type="text" value="0.33" class="window-val3" />
+                        </div>
+                    </div>
+                    <div class="panel convolve">
+                        <h3>Convolve!</h3>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <script>
+// visual constants for graph construction
+const dims = {
+    width: 2400,
+    height: 500
+}
+const margins = {
+    left: 10,
+    right: 10,
+    top: 10,
+    bottom: 20
+}
+// create d3 objects for graph construction
+const xRange = [margins.left, dims.width - margins.right];
+const yRange = [dims.height - margins.top, margins.bottom];
+
+let xScale = d3.scaleLinear()
+    .domain([0, 300])
+    .range(xRange);
+let yScale = d3.scaleLinear()
+    .domain([0, 35])
+    .range(yRange);
+let getX = (i) => xScale(i)+margins.left;
+let getY = (d) => yScale(d)-margins.bottom;
+
+let mySvg = d3.select('#svg');
+
+
+// SET UP AXIS
+var xAxis = d3.axisBottom(xScale);
+
+mySvg.append("g")
+	.attr('transform',`translate(0, ${dims.height-margins.bottom})`)
+	.call(xAxis);
+
+function update() {
+	// DATA JOIN
+	let points = mySvg.selectAll("circle")
+    .data(numbers);
+
+    // UPDATE
+    points.classed('update',true)
+    .attr('cy', (d, i) => getY(d))
+    .attr('cx', (d, i) => getX(i))
+	
+    // ENTER + UPDATE
+    points.enter().append("circle")
+    .attr('cy', (d, i) => getY(d))
+    .attr('cx', (d, i) => getX(i))
+    .attr('r', (d) => 3)
+    .attr('fill','black');
+
+    // EXIT
+	points.exit().remove();
+}
+update();
+
+
+
+$(".convolve").click(function() {
+	let val1 = parseFloat($(".window-val1").val());
+	let val2 = parseFloat($(".window-val2").val());
+	let val3 = parseFloat($(".window-val3").val());
+
+	let weights = [val1, val2, val3];
+	console.log(weights);
+
+	let numbers2 = [];
+	for(let i=0; i<numbers.length-weights.length; i++) {
+		let newval = 0;
+		for(let j=0; j<weights.length; j++) {
+			// console.log(weights[j], numbers[i+j])
+			newval += weights[j]*numbers[i+j];
+		}
+		// console.log(newval);
+		numbers2.push(newval);
+	}
+	numbers = numbers2;
+	update();
+});
+
+
+function makeSvg(weights_obj) {
+	let weights = weights_obj[0];
+	let desc = weights_obj[1];
+
+	let topys=[0,0,0];
+	let toph = [0,0,0];
+	let bottomh = [0,0,0];
+	for(let i=0; i<weights.length; i++) {
+		let height = weights[i]*47;
+		if(height<0) {
+			bottomh[i] = -1*height;
+			toph[i] = 0;
+		} else {
+			bottomh[i] = 0;
+			toph[i] = height;
+			topys[i] = 50-height;
+		}
+	}
+
+return (`
+<div class="commonwindow">
+<div class="desc" data-weight0="${weights[0]}" data-weight1="${weights[1]}" data-weight2="${weights[2]}"><p>${desc}</p></div>
+<svg version="1.1" x="0px" y="0px" width="100px"
+	 height="200px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+
+	<rect x="6" y="${topys[0]}" width="27" height="${toph[0]}" stroke="transparent" fill="black" stroke-width="0"/>
+	<rect x="36" y="${topys[1]}" width="27" height="${toph[1]}" stroke="transparent" fill="black" stroke-width="0"/>
+	<rect x="66" y="${topys[2]}" width="27" height="${toph[2]}" stroke="transparent" fill="black" stroke-width="0"/>
+
+	<rect x="6" y="50" width="27" height="${bottomh[0]}" stroke="transparent" fill="black" stroke-width="0"/>
+	<rect x="36" y="50" width="27" height="${bottomh[1]}" stroke="transparent" fill="black" stroke-width="0"/>
+	<rect x="66" y="50" width="27" height="${bottomh[2]}" stroke="transparent" fill="black" stroke-width="0"/>
+
+	<rect x="0" y="48" width="100" height="5" stroke="transparent" fill="gray" stroke-width="0"/>
+</svg>
+</div>
+`);
+}
+
+let list_weights = [
+[[0.33, 0.34, 0.33],"Gaussian Average"],
+[[1, 0, 0],"Identity"],
+[[-1, 1, 0],"Edge Detection"],
+[[-1, 2, -1],"Sharpen"]
+];
+for(let i=0; i<list_weights.length; i++) {
+	$(".commonwindows").append($(makeSvg(list_weights[i])));
+}
+
+
+$(".desc").click(function() { //TODO fix indexing (from 0 or from 1)
+	$(".window-val1").val($(this).attr('data-weight0'));
+	$(".window-val2").val($(this).attr('data-weight1'));
+	$(".window-val3").val($(this).attr('data-weight2'));
+});
+
+function getPerlin() {
+	let simplex = new SimplexNoise();
+
+	for(var i=0; i<300; i++) {
+		// console.log((simplex.noise2D(0, 0.1*i)+1)*10);
+		// console.log(Math.random()*10);
+		// console.log((simplex.noise2D(0, 0.1*i)+0.5*simplex.noise2D(0, 0.1*i*2)+0.25*simplex.noise2D(0, 0.1*i*4)+1)*10);
+		// if(Math.random()>0.2) { console.log((simplex.noise2D(0, 0.1*i)+1)*10); } else {console.log(0);}
+		console.log(2*simplex.noise2D(0, 0.1*i*2)+10*(Math.sin(i*0.1)+1.5));
+	}
+}
+
+
+function setData(index) {
+	if(index == 0) {
+		numbers = generic_perlin;
+	} else if(index == 1) {
+		numbers = edge_detection;
+	} else if(index == 2) {
+		numbers = erratic_perlin;
+	} else if(index == 3) {
+		numbers = white_noise;
+	} else if(index ==4) {
+		numbers = noisy_perlin;
+	} else if(index == 5) {
+		numbers = peaks;
+	}
+
+	update();
+}
+
+setData(0);
+		</script>
+    </body>
+</html>
