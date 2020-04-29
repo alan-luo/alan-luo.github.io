@@ -28,6 +28,9 @@ body {
 .mono {
 	font-family: $font-mono;
 }
+.light {
+	font-weight: 300;
+}
 a {
 	color:$not-black;
 	text-decoration: none;
@@ -251,6 +254,12 @@ a {
 			position:absolute;
 			top:0.2em;
 			left:-0.9em;
+		}
+		&.h-nopre:before {
+			content:"";
+		}
+		&.h-big {
+			font-size:40pt;
 		}
 	}
 	p {
