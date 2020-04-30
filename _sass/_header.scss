@@ -1,0 +1,95 @@
+.header {
+	width:100%;
+	height:$header-height;
+	text-transform: uppercase;
+
+	position:relative;
+	z-index:1;
+	font-weight:300;
+
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items:center;
+	&.filled {
+		background:white;
+	}
+	.anim-link a {
+		color:$gray;
+		&:hover {
+			color:$not-black;
+		}
+	}
+}
+.header-links {
+	display:flex;
+	height:100%;
+	line-height:100%;
+	margin-right:$header-margin;
+	div {
+		position:relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		margin-right:30px;
+		&:last-child {
+			margin-right:0;
+		}
+		.social-icons {
+			flex-direction: row;
+			font-size:18pt;
+			a {
+				margin-left:0.25em;
+				&:first-child {
+					margin-left:0;
+				}
+				span {
+					transition: color 0.25s;	
+				}
+				&.link-github:hover span {
+					color:$color-github;
+				}
+				&.link-linkedin:hover span {
+					color:$color-linkedin;
+				}
+				&.link-twitter:hover span {
+					color:$color-twitter;
+				}
+				&.link-email:hover span {
+					color:$color-email;
+				}
+			}
+		}
+		.anim-link a:before {
+			bottom:-2px;
+		}
+		&:nth-of-type(4n+1) .anim-link a:before {
+			background:$light-blue;
+		}
+		&:nth-of-type(4n+2) .anim-link a:before {
+			background:$light-red;
+		}
+		&:nth-of-type(4n+3) .anim-link a:before {
+			background:$light-green;
+		}
+		&:nth-of-type(4n+4) .anim-link a:before {
+			background:$light-orange;
+		}
+	}
+
+}
+@keyframes btnAnim {
+	0%   {color: $not-black;	 box-shadow: 0 0 0 2px $not-black; }
+	2%   {color: $light-orange;	 box-shadow: 0 0 0 2px $light-orange; }
+	10%  {color: $light-blue;	 box-shadow: 0 0 0 2px $light-blue; }
+	20%  {color: $light-red;	 box-shadow: 0 0 0 2px $light-red; }
+	30%  {color: $light-green;	 box-shadow: 0 0 0 2px $light-green; }
+	40%  {color: $light-orange;	 box-shadow: 0 0 0 2px $light-orange; }
+	50%  {color: $light-blue;	 box-shadow: 0 0 0 2px $light-blue; }
+	60%  {color: $light-red;	 box-shadow: 0 0 0 2px $light-red; }
+	70%  {color: $light-green;	 box-shadow: 0 0 0 2px $light-green; }
+	80%  {color: $light-orange;	 box-shadow: 0 0 0 2px $light-orange; }
+	90%  {color: $light-green;	 box-shadow: 0 0 0 2px $light-green; }
+   100%  {color: $light-blue;	 box-shadow: 0 0 0 2px $light-blue; }
+}
+@import "logo";

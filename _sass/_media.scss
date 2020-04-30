@@ -1,8 +1,18 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+	.project-images.project-images { display:none;}
 	.top-wrapper.home-wrapper .text {
 		font-size:12pt;
 		width:80%;
+	}
+	.project-wrapper {
+		font-size:12pt;	
+	}
+	.hide-small {
+		display: none !important;
+	}
+	.show-small {
+		display: initial !important;
 	}
 }
 
