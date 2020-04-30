@@ -1,11 +1,5 @@
-# Alan Luo's landing page
+# Alan Luo's website
 
-Right now, this just hosts unstyled CSS for a big list of my projects.
+It's my website. What else can I say?
 
-**List:**
-
- - [Portfolio Website](http://alanluo.com/)
- - [Knowledge Base](http://docs.alanluo.com/)
- - [Javascript Demos](https://alan-luo.github.io/demos/)
- - [Visualizing Convolution](https://alan-luo.github.io/convolution/)
- - [Cleveland and McGill Experiment](https://alan-luo.github.io/clevelandmcgillturk/)
+Built using Github Pages and a custom Jekyll theme.
