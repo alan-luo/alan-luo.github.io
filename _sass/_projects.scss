@@ -149,6 +149,10 @@ $project-margin-h: 18pt;
 	.box-content {
 		width:100%;
 		position:absolute;
+		height:100%;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
 		p {
 			width:60%;
 			margin: 0 auto;
@@ -183,6 +187,8 @@ $project-margin-h: 18pt;
 		.thumb-image {
 			transition: opacity 0.25s;
 			position:absolute;
+			top:0;
+			left:0;
 			&.image-box {
 				position:relative;
 				opacity:1;

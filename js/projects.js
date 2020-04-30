@@ -60,7 +60,7 @@ function doAsync() {
 }
 
 document.addEventListener("readystatechange", (e) => {
-	if (event.target.readyState === "interactive") {
+	if (event.target.readyState === "complete") {
         doAsync();
     }
 })
