@@ -5,6 +5,7 @@ body {
 	font-family: $font-sans;
 	font-weight:300;
 	color:$not-black;
+	font-size:14pt;
 
 	&.scrollbar {
 	    overflow-y: auto;
@@ -62,7 +63,8 @@ a {
 	}
 	&.index-canvas {
 		background:$background-color;
-		height: calc(100vh - 3.25em)!important;
+		height: calc(100vh - 3.25em);
+		max-height: calc(70vw) !important;
 		border-bottom:1px solid $border-color;
 	}
 	&.project-canvas {
@@ -159,19 +161,20 @@ a {
 
 }
 @keyframes btnAnim {
-	0%   { box-shadow: 0 0 0 2px $not-black; }
-	2%   { box-shadow: 0 0 0 2px $light-orange; }
-	10%  { box-shadow: 0 0 0 2px $light-blue; }
-	20%  { box-shadow: 0 0 0 2px $light-red; }
-	30%  { box-shadow: 0 0 0 2px $light-green; }
-	40%  { box-shadow: 0 0 0 2px $light-orange; }
-	50%  { box-shadow: 0 0 0 2px $light-blue; }
-	60%  { box-shadow: 0 0 0 2px $light-red; }
-	70%  { box-shadow: 0 0 0 2px $light-green; }
-	80%  { box-shadow: 0 0 0 2px $light-orange; }
-	90%  { box-shadow: 0 0 0 2px $light-green; }
-   100%  { box-shadow: 0 0 0 2px $light-blue; }
+	0%   {color: $not-black;	 box-shadow: 0 0 0 2px $not-black; }
+	2%   {color: $light-orange;	 box-shadow: 0 0 0 2px $light-orange; }
+	10%  {color: $light-blue;	 box-shadow: 0 0 0 2px $light-blue; }
+	20%  {color: $light-red;	 box-shadow: 0 0 0 2px $light-red; }
+	30%  {color: $light-green;	 box-shadow: 0 0 0 2px $light-green; }
+	40%  {color: $light-orange;	 box-shadow: 0 0 0 2px $light-orange; }
+	50%  {color: $light-blue;	 box-shadow: 0 0 0 2px $light-blue; }
+	60%  {color: $light-red;	 box-shadow: 0 0 0 2px $light-red; }
+	70%  {color: $light-green;	 box-shadow: 0 0 0 2px $light-green; }
+	80%  {color: $light-orange;	 box-shadow: 0 0 0 2px $light-orange; }
+	90%  {color: $light-green;	 box-shadow: 0 0 0 2px $light-green; }
+   100%  {color: $light-blue;	 box-shadow: 0 0 0 2px $light-blue; }
 }
+
 
 .top-wrapper {
 	width:100%;
@@ -180,17 +183,25 @@ a {
 
 	display: flex;
 	flex-direction: column;
+	.index-canvas & {
+		justify-content:space-between;
+		height:calc(100% - #{$header-height}) !important;
+	}
 
-	&.home-wrapper p {
-		line-height:1.5em;
-		margin:20px auto;
+	&.home-wrapper .text{
+		margin:0 auto;
+		margin-top:-3em;
 		width:40em;
-		font-size:14pt;	
+		p {
+			line-height:1.5em;
+			margin:20px auto;
 
-		&:first-child {
-			margin-top:20px;
+			&:first-child {
+				margin-top:20px;
+			}
 		}
 	}
+	
 
 	div.button {
 		background:$background-color;
@@ -199,9 +210,12 @@ a {
 
 		display:inline-block;
 		padding:5px 10px;
-		margin:0 auto;
 		align-self:center;
 		transition: all 0.5s;
+
+		margin-bottom:2em;
+		text-transform: uppercase;
+		// font-size:16pt;
 
 
 		&:hover {
@@ -246,7 +260,6 @@ a {
 		p {
 			margin-left:0;
 			margin-right:0;
-			font-size:14pt;
 			line-height:1.5em;
 
 			a {
@@ -277,7 +290,6 @@ a {
 			font-weight:400;
 			color:$caption-color;
 			font-family:$font-sans;
-			font-size:14pt;
 			// width:24em;
 			margin: 0;
 		}
@@ -340,13 +352,15 @@ a {
 
 
 /* bottom half */
+$project-margin-h: 2em;
 .project-wrapper {
 	font-family: $font-mono;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	width:100%;
-	max-height: calc(100vh - 9em) !important;
+	height:calc(100vh - 9em);
+	max-height: calc(70vw) !important;
 	margin:2em auto;
 	div {
 		display: flex;
@@ -354,10 +368,10 @@ a {
 	}
 	&>div {
 		&:first-of-type {
-			margin-left:5em;
+			margin-left:$project-margin-h;
 		}
 		&:last-of-type {
-			margin-right:5em;
+			margin-right:$project-margin-h;
 		}
 	}
 	p {
@@ -372,6 +386,7 @@ a {
 }
 .project-titles, .project-images {
     overflow-y: auto;
+    overflow-x: hidden;
 	&::-webkit-scrollbar {
 	  width: 7px;
 	}
@@ -446,22 +461,27 @@ a {
 	width:400px;
 	position:relative;
 	display:flex;
+	flex-direction:row;
+	justify-content:space-around;
 	background:$background-color;
 	&.bg-diff {
 		background:$background-color-2;
 	}
-	div {
+	.box-fill {
 		width:100%;
 		height:0;
 		padding-top:75%;
 		outline:1px solid $gray;
 		outline-offset:-1px;
 	}
-	p {
-		width:60%;
-		margin:30% 20%;
+	.box-content {
+		width:100%;
 		position:absolute;
-		text-align:center;
+		p {
+			width:60%;
+			margin: 0 auto;
+			text-align:center;
+		}
 	}
 }
 .project-images {

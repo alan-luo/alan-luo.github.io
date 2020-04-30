@@ -30,16 +30,20 @@
 	<div class="project-images">
         <div class="img-wrapper thumb-wrapper">
 	        	<div class="thumb-image image-box bg-diff" data-project-id="-1">
-	        		<div></div>
-	        		<p>hover over a project to see a thumbnail</p>
+	        		<div class="box-fill"></div>
+	        		<div class="box-content">
+	        			<p>hover over a project to see a thumbnail</p>
+	        		</div>
 	        	</div>
 			{% for page in pagelist %}
 			{% if page.url contains '/project' %}
 				<a class="hide-image thumb-image" href="{{ page.url | prepend: site.baseurl}}" data-project-id="{{ page.number }}">
 				<div class="img-async">
 					<div class="image-box">
-						<div></div>
-						<p>image loading...<br>{{ page.number }}</p>
+						<div class="box-fill"></div>
+						<div class="box-content">
+							<p>image loading...<br>{{ page.number }}</p>
+						</div>
 					</div>
 
 					<img 
