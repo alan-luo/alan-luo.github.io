@@ -1,13 +1,9 @@
 ---
-layout: project
+layout: link
+href: https://www.instagram.com/luo.png/
 title: Glitch Art
 permalink: /project/glitch.html
 thumb: glitch.jpg
 number: '002'
-caption: Glitchy art.
 tags: art featured
 ---
-
-# Glitch Art
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque temporibus exercitationem molestias doloribus vero commodi perspiciatis, dolorem voluptas dolore quisquam laboriosam. Quis enim corrupti odit esse eum ullam repudiandae rerum?
