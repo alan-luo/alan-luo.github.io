@@ -1,7 +1,7 @@
 ---
 layout: project
 permalink: /bio/
-title: The Life of Alan
+title: The Life of an Alan
 caption: In which the author questions the reader's incredibly poor choice of getting to know him. Critical thinking optional, but recommended.
 ---
 # Introduction
