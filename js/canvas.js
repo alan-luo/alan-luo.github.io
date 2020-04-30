@@ -26,7 +26,7 @@ const zero = [0, 0];
 let canvas = document.getElementById("head-canvas");
 let ctx = canvas.getContext("2d");
 ctx.translate(0.5, 0.5);
-const canvasScale = 1.8;
+const canvasScale = 1.5;
 
 function resize() {
 	canvas.width = canvasScale*canvas.offsetWidth;	
@@ -35,7 +35,7 @@ function resize() {
 resize();
 window.addEventListener("resize", resize);
 
-let numDots = Math.floor((canvas.width*canvas.height)/(220*220));
+let numDots = 2*Math.floor((canvas.width*canvas.height)/(220*220));
 console.log(numDots);
 
 
