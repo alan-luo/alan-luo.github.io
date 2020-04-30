@@ -63,8 +63,7 @@ a {
 	}
 	&.index-canvas {
 		background:$background-color;
-		height: calc(100vh - 3.25em);
-		max-height: calc(70vw) !important;
+		height: calc(100vh - 3.25em) !important;
 		border-bottom:1px solid $border-color;
 	}
 	&.project-canvas {

@@ -1,14 +1,11 @@
 // do params
 let myFill = "#bbb";
-let numDots = 100;
 let scroll = false;
 
 if(typeof(canvasParams) != "undefined") {
 	if(canvasParams.fillColor) myFill = canvasParams.fillColor;
-	if(canvasParams.numDots) numDots = canvasParams.numDots;
 	if(canvasParams.scroll) scroll = canvasParams.scroll;
 }
-
 // helper functions
 let rand = (bot, top) => bot+Math.random()*(top-bot);
 let randInt = (bot, top) => Math.floor(rand(bot, top));
@@ -37,6 +34,9 @@ function resize() {
 }
 resize();
 window.addEventListener("resize", resize);
+
+let numDots = Math.floor((canvas.width*canvas.height)/(220*220));
+console.log(numDots);
 
 
 // init code
