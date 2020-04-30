@@ -47,3 +47,20 @@ for(let i=0; i<animLinks.length; i++) {
 	let myHover = getHover(id);
 	link.addEventListener("mouseover", myHover);
 }
+
+let asyncs = document.getElementsByClassName("img-async");
+function doAsync() {
+	for(let i=0; i<asyncs.length; i++) {
+		asyncs[i].children[0].classList.add("hidden");
+
+		let img = asyncs[i].children[1];
+		img.classList.remove("hidden");
+		img.setAttribute("src", img.getAttribute("data-lazysrc"));
+	}
+}
+
+document.addEventListener("readystatechange", (e) => {
+	if (event.target.readyState === "interactive") {
+        doAsync();
+    }
+})

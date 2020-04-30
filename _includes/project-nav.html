@@ -29,14 +29,25 @@
 	</div>
 	<div class="project-images">
         <div class="img-wrapper thumb-wrapper">
-	        	<div class="thumb-image image-box" data-project-id="-1">
+	        	<div class="thumb-image image-box bg-diff" data-project-id="-1">
 	        		<div></div>
 	        		<p>hover over a project to see a thumbnail</p>
 	        	</div>
 			{% for page in pagelist %}
 			{% if page.url contains '/project' %}
-				<a class="thumb-image hide-image" href="{{ page.url | prepend: site.baseurl}}" data-project-id="{{ page.number }}">
-				<img src="{{ page.thumb | prepend: "/img/thumbs/" | prepend: site.baseurl }}" alt="{{ item.alt }}" />
+				<a class="hide-image thumb-image" href="{{ page.url | prepend: site.baseurl}}" data-project-id="{{ page.number }}">
+				<div class="img-async">
+					<div class="image-box">
+						<div></div>
+						<p>image loading...<br>{{ page.number }}</p>
+					</div>
+
+					<img 
+					data-lazysrc="{{ page.thumb | prepend: "/img/thumbs/" | prepend: site.baseurl }}" 
+					alt="{{ item.alt }}"
+					class="hidden"
+					 />
+				</div>
 				</a>
 			{% endif %}
 		    {% endfor %}
