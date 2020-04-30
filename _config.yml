@@ -23,9 +23,12 @@ email: me@alanluo.com
 description: > # this means to ignore newlines until "baseurl:"
   Alan Luo: game developer, creative coder, and student. Purveyor of baboonery.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "localhost:4000" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://alanluo.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: alanluo_O
 github_username:  alan-luo
+
+plugins:
+  - jekyll-sitemap
 
 markdown: kramdown
 
@@ -51,3 +54,5 @@ exclude:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+
