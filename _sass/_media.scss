@@ -1,5 +1,5 @@
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 570px) {
+@media only screen and (max-width: 610px) {
 	.project-images.project-images { display:none !important;}
 	.top-wrapper.home-wrapper .text {
 		font-size:12pt;
@@ -31,7 +31,7 @@
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 570px) {
+@media only screen and (min-width: 610px) {
 	.project-link .anim-link {
 		.link-number {
 			display:inline-block;
