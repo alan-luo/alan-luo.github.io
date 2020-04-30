@@ -20,3 +20,7 @@ featuredthumbs:
 - thumb: particles.gif
   alt: particle sim
   url: /project/particles.html
+
+- thumb: blob.gif
+  alt: ablobalypse
+  url: /project/blobs.html
