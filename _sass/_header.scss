@@ -47,16 +47,16 @@
 					transition: color 0.25s;	
 				}
 				&.link-github:hover span {
-					color:$color-github;
+					color:$color-github !important;
 				}
 				&.link-linkedin:hover span {
-					color:$color-linkedin;
+					color:$color-linkedin !important;
 				}
 				&.link-twitter:hover span {
-					color:$color-twitter;
+					color:$color-twitter !important;
 				}
 				&.link-email:hover span {
-					color:$color-email;
+					color:$color-email !important;
 				}
 			}
 		}
@@ -91,5 +91,104 @@
 	80%  {color: $light-orange;	 box-shadow: 0 0 0 2px $light-orange; }
 	90%  {color: $light-green;	 box-shadow: 0 0 0 2px $light-green; }
    100%  {color: $light-blue;	 box-shadow: 0 0 0 2px $light-blue; }
+}
+
+.hamburger {
+	margin-right:$header-margin;
+	width:38px;
+	height:36px;
+
+	.hamburger-icon {
+		height:100%;
+		width:100%;
+
+		display:flex;
+		flex-direction:column;
+		justify-content:space-between;
+
+		position:relative;
+		.hb-row {
+			display:block;
+			width:100%;
+			height:7px;
+			border-radius:7px;
+			background:$not-black;
+		}
+	}
+}
+#modal {
+	display:none;
+	opacity:0;
+	top:-1000em;
+	&:target {
+		display:block;
+		opacity:1;
+		top:0;
+	}
+
+	position:fixed;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	left:0;
+	z-index:100;
+	.modal-bg, .modal-content {
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+	}
+	.modal-bg {
+		content:"";
+		background:$not-black;
+		opacity:0.95;
+		z-index:99;
+	}
+	.modal-x {
+		position:absolute;
+		top:0; right:10px;
+		a {color:white};
+		font-size:40pt;
+		font-weight:300;
+		z-index:101;
+		opacity: 1;
+	}
+	.modal-content {
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+		text-align:center;
+		justify-content:space-between;
+
+		.modal-header {
+			h1 {font-weight:300;}
+			text-transform: uppercase;
+
+			&::after {
+				content:"";
+				width:80%;
+				height:0;
+				border-bottom:1px solid white;
+				display:block;
+				margin: -1em auto 1em auto;
+			}
+		}
+		z-index:101;
+
+		color:white;
+		font-size:24pt;
+		.modal-links .anim-link a, .modal-social .social-icons a {
+			color:white;
+		}
+		.modal-links > div {
+			margin-bottom:0.5em;
+		}
+		.modal-social {
+			font-size:36pt;
+			margin-bottom:2em;
+		}
+
+	}
 }
 @import "logo";

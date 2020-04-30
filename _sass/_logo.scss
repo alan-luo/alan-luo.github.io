@@ -1,7 +1,8 @@
 .logo {
-	width:48px;
-	height:48px;
-	margin-left:$header-margin;
+	margin-left: $header-margin;
+
+	width:$logo-dim;
+	height:$logo-dim;
 	svg {
 		width:100%;
 		height:100%;

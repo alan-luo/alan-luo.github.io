@@ -1,33 +1,21 @@
 <div class="header {{ include.class }}">
-<div>
-	{% include logo.html %}
-</div>
-<div class="header-links hide-small">
-	<!-- <p><a>projects</a></p> -->
 	<div>
-		<div class="anim-link"><a href="{{ site.data.links.blog }}">blog</a></div>
+		{% include logo.html %}
 	</div>
-	<div>
-		<div class="anim-link"><a href="{{ site.data.links.bio | prepend: site.baseurl }}">bio</a></div>
-	</div>
-	<div>
-		<div class="anim-link"><a href="{{ site.data.links.cv | prepend: site.baseurl }}">CV</a></div>
-	</div>
-	<div>
-		<div class="anim-link"><a href="{{ site.data.links.links | prepend: site.baseurl }}">links</a></div>
-	</div>
-	<div>
-		<div class="social-icons">
-			<a href="{{ site.data.links.github }}" class="link-github"><span class="icon-github-square"></span></a>
-			<a href="{{ site.data.links.linkedin }}" class="link-linkedin"><span class="icon-linkedin-square"></span></a>
-			<a href="{{ site.data.links.twitter }}" class="link-twitter"><span class="icon-twitter-square"></span></a>
-			<a href="{{ site.data.links.email }}" class="link-email"><span class="icon-envelope-square"></span></a>
+	<div class="header-links hide-small">
+		<!-- <p><a>projects</a></p> -->
+		{% include links.html %}
+		<div>
+			{% include social.html %}
 		</div>
 	</div>
-</div>
-<div class="show-small">
-	<div class="hamburger">
-		
+	<div class="show-small hamburger">
+		<a href="#modal">
+		<div class="hamburger-icon">
+			<div class="hb-row"></div>
+			<div class="hb-row"></div>
+			<div class="hb-row"></div>
+		</div>
+		</a>
 	</div>
-</div>
 </div>
