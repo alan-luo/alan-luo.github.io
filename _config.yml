@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Alan Luo - Games and More
+title: Alan Luo - Game Developer and Creative Coder
 email: me@alanluo.com
 description: > # this means to ignore newlines until "baseurl:"
   Alan Luo: game developer, creative coder, and student. Purveyor of baboonery.
