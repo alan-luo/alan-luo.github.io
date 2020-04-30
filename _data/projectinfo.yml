@@ -13,10 +13,6 @@ featuredthumbs:
   alt: procedural planet
   url: /project/lil-proc.html
 
-- thumb: glitch2.jpg
-  alt: glitch bench
-  url: /project/glitch.html
-
 - thumb: particles.gif
   alt: particle sim
   url: /project/particles.html

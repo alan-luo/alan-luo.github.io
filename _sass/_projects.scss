@@ -43,6 +43,8 @@ $project-margin-h: 18pt;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+		position:relative;
+		height:100%;
 		&>div {
 			display: flex;
 			flex-direction: column;
@@ -62,6 +64,7 @@ $project-margin-h: 18pt;
 .project-titles, .project-images {
     overflow-y: auto;
     overflow-x: hidden;
+    height:100%;
 	&::-webkit-scrollbar {
 	  width: 7px;
 	}
