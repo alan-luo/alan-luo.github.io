@@ -1,4 +1,15 @@
 <div class="project-wrapper">
+	<div class="project-tabs">
+		<div>
+			<div class="anim-link"><a href="#projects" class="bolden tag-link bold" onclick="applyFilter('featured')">featured</a></div>
+		</div>
+		{% for item in site.data.projectinfo.tags %}
+		<div>
+			<div class="anim-link"><a href="#projects" class="bolden tag-link" onclick="applyFilter('{{ item.tag }}')">{{ item.tag }}</a></div>
+		</div>
+   		{% endfor %}
+	</div>
+	<div class="project-columns">
 	<a id="projects"></a>
 	<div class="project-links">
 		<div>
@@ -64,6 +75,7 @@
 			</a>
 		</div>
    		{% endfor %}
+	</div>
 	</div>
 </div>
 <script src="{{ "/js/projects.js" | prepend: site.baseurl }}"></script>
