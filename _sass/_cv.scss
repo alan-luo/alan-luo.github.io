@@ -23,18 +23,18 @@ body {
 	background:white;
 
 	color:$not-black;
-	font-size:12pt;
+	font-size:13pt;
 }
 
 h2, h3 {
-	color:$bright-blue;
+	color:$cv-text;
 }
 a {
 	color:black;
 	text-decoration: underline;
 	transition: color 0.2s;
 	&:hover {
-		color:$bright-blue;
+		color:$cv-text;
 	}
 	&:active {
 		color:#6688FF;
@@ -47,7 +47,7 @@ a {
 }
 .header {
 	padding-bottom:0.5em;
-	border-bottom:2px solid $bright-blue;
+	border-bottom:2px solid $cv-text;
 
 	display:flex;
 	flex-direction:row;
@@ -85,7 +85,7 @@ a {
 
 }
 .section {
-	border-bottom:1px dashed $bright-blue;
+	border-bottom:1px dashed $cv-text;
 	padding:6px 0;
 	display:flex;
 	flex-direction:column;
@@ -108,7 +108,7 @@ a {
 			font-size:12pt;
 		}
 		p {
-			color:$bright-blue;
+			color:$cv-text;
 		}
 	}
 	.columns {
