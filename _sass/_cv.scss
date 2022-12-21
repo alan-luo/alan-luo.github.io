@@ -86,6 +86,9 @@ a {
 }
 .section {
 	border-bottom:1px dashed $cv-text;
+	&.noborder {
+		border-bottom: none;
+	}
 	padding:6px 0;
 	display:flex;
 	flex-direction:column;
@@ -117,4 +120,13 @@ a {
 		flex-direction:row;
 		justify-content:space-between;
 	}
+}
+
+@media print {
+	p.pagebreak {
+		clear: both;		
+		page-break-before: always;
+		background: red;
+		height: 2.5em;
+	}	
 }
