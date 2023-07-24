@@ -14,7 +14,7 @@ body {
 }
 
 .wrapper {
-	margin-top:1em;
+	// margin-top:1em;
 }
 .container {
 	width: 960px;
@@ -26,18 +26,18 @@ body {
 	font-size:13pt;
 }
  
-h2, h3 {
-	color:$cv-text;
+h2, h3, .red {
+	color:$cv-text-red;
 }
 a {
 	color:black;
 	text-decoration: underline;
 	transition: color 0.2s;
 	&:hover {
-		color:$cv-text;
+		color:$cv-text-red;
 	}
 	&:active {
-		color:#6688FF;
+		color:$cv-text-red-active;
 	}
 }
 .content {
@@ -47,7 +47,7 @@ a {
 }
 .header {
 	padding-bottom:0.5em;
-	border-bottom:2px solid $cv-text;
+	border-bottom:2px solid $cv-text-red;
 
 	display:flex;
 	flex-direction:row;
@@ -55,12 +55,12 @@ a {
 	align-items:flex-end;
 
 	.left {
-		h1 {
+		.title {
 			font-family: 'Raleway', sans-serif;
 			font-weight:400;
 			font-size:36pt;
 		}
-		h2 {
+		.subtitle {
 			font-family: 'Lato', sans-serif;
 			font-weight:400;
 			font-size:14pt;
@@ -70,10 +70,19 @@ a {
 	.right {
 		text-align:right;
 		display:flex;
-		flex-direction:row;
+		flex-direction:column;
 		justify-content:flex-end;
-		div:first-child {
-			margin-right:1em;
+		.bottom-half {
+			display: flex;
+			flex-direction: row;
+			div {
+				display: flex;
+				flex-direction: column;
+
+				&:first-child {
+					margin-right:1em;
+				}
+			}
 		}
 		p {
 			margin-top:2px;
@@ -85,7 +94,7 @@ a {
 
 }
 .section {
-	border-bottom:1px dashed $cv-text;
+	border-bottom:1px dashed $cv-text-red;
 	&.noborder {
 		border-bottom: none;
 	}
@@ -111,7 +120,22 @@ a {
 			font-size:12pt;
 		}
 		p {
-			color:$cv-text;
+			color:$cv-text-red;
+		}
+
+		.link {
+			font-weight: 400;
+			margin-left: 3px;
+			& > a {
+				color: $cv-text-red;
+				text-decoration: none;
+				&:hover {
+					text-decoration: underline;
+				}
+				&:active {
+					color: $cv-text-red-active;
+				}
+			}
 		}
 	}
 	.columns {
